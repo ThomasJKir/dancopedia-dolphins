@@ -1,5 +1,4 @@
 CREATE DATABASE brazil-dances;
--- Creating the 'users' table
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
     user_type ENUM('admin', 'user'),
