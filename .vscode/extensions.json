@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "pranaygp.vscode-css-peek",
+    "anbuselvanrocky.bootstrap5-vscode",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "donjayamanne.jquerysnippets",
+    "ritwickdey.liveserver",
+    "yzhang.markdown-all-in-one",
+    "esbenp.prettier-vscode"
+  ]
+}
