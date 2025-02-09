@@ -6,7 +6,7 @@ USE brazil_dances;
 CREATE TABLE IF NOT EXISTS users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     user_type ENUM('admin', 'user'),
-    username VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL UNIQUE,
     password_hash CHAR(64),
     email_hash VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS dance_categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
-    category_name VARCHAR(100) NOT NULL
+    category_name VARCHAR(100) NOT NULL UNIQUE
 );
 
 INSERT INTO dance_categories (category_name) VALUES 
@@ -22,16 +22,20 @@ INSERT INTO dance_categories (category_name) VALUES
 
 CREATE TABLE IF NOT EXISTS media (
     media_id INT PRIMARY KEY AUTO_INCREMENT,
-    media_url VARCHAR(255),
+    media_url VARCHAR(255) UNIQUE,
     alttext VARCHAR(255)
 );
 
 INSERT INTO media (media_url, alttext) VALUES 
-('media/samba_img.jpg', 'A vibrant image of two dancers performing Samba at a Carnival');
+('media/samba_img.jpg', 'Samba dance image'),
+('media/forro_img.jpg', 'Forro dance image'),
+('media/frevo_img.jpg', 'Frevo dance image'),
+('media/axe_img.jpg', 'Axé dance image'),
+('media/bossa_img.jpg', 'Bossa Nova dance image');
 
 CREATE TABLE IF NOT EXISTS dances (
     dance_id INT PRIMARY KEY AUTO_INCREMENT,
-    dance_name VARCHAR(100) NOT NULL,
+    dance_name VARCHAR(100) NOT NULL UNIQUE,
     category_id INT,
     description TEXT,
     media_id INT,
@@ -41,7 +45,11 @@ CREATE TABLE IF NOT EXISTS dances (
 );
 
 INSERT INTO dances (dance_name, category_id, description, media_id, region) VALUES
-('Samba', 1, 'A lively, rhythmical dance with origins in Afro-Brazilian communities, performed at the Carnival.', 1, 'Rio de Janeiro');
+('Samba', 1, 'A lively, rhythmical dance with origins in Afro-Brazilian communities, performed at the Carnival.', 1, 'Rio de Janeiro'),
+('Forró', 3, 'A close-partner dance from Northeastern Brazil with accordion-driven rhythms.', 2, 'Northeastern Brazil'),
+('Frevo', 2, 'An energetic, acrobatic dance performed with colorful umbrellas during Carnival.', 3, 'Pernambuco'),
+('Axé', 4, 'A vibrant dance style from Bahia with upbeat moves, popular at parties and festivals.', 4, 'Bahia'),
+('Bossa Nova', 4, 'A smooth, intimate dance style with subtle sway, paired with jazzy Bossa Nova music.', 5, 'Rio de Janeiro');
 
 CREATE TABLE IF NOT EXISTS region (
     region_key INT PRIMARY KEY AUTO_INCREMENT,
@@ -59,8 +67,3 @@ CREATE TABLE IF NOT EXISTS preferences (
 );
 
 SET FOREIGN_KEY_CHECKS=1;
-
-
-
-
-

@@ -42,7 +42,6 @@ $result = $conn->query($sql);
 </head>
 <body>
     <h1>Brazilian Dances</h1>
-
     <?php if ($result->num_rows > 0): ?>
         <table>
             <thead>
