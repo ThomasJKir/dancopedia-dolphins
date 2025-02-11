@@ -2,9 +2,9 @@
 require 'database.php';
 
 $sql = "
-    SELECT dances.dance_name, dances.description, dances.region, media.media_url, media.alttext, dance_categories.category_name
+    SELECT dances.dance_name, dances.description, dances.region, images.media_url, images.alttext, dance_categories.category_name
     FROM dances
-    LEFT JOIN media ON dances.media_id = media.media_id
+    LEFT JOIN images ON dances.media_id = images.media_id
     LEFT JOIN dance_categories ON dances.category_id = dance_categories.category_id
 ";
 $result = $conn->query($sql);
