@@ -3,47 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brazilian Dances</title>
+  <title>Welcome to Brazil</title>
+  <link rel="stylesheet" href="css/Home.css">
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
+      background-image: url('assets/images/brazil_background.jpg');
+      background-size: cover;
+      background-position: center;
       text-align: center;
+      color: black;
     }
-    th {
-      background-color: #f2f2f2;
+
+    .flag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
     }
-    img {
-      max-width: 150px;
+
+    .danceContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .dance {
+      width: 200px;
+      background-color: rgba(200, 160, 255, 0.8);
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dance:hover {
+      background-color: rgba(180, 140, 235, 0.9);
+    }
+
+    .dance img {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+    }
+
+    .dance-gallery img {
+      width: 200px;
       height: auto;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-<h1>Brazilian Dances</h1>
-<table id="danceTable">
-  <thead>
-  <tr>
-    <th>Dance Name</th>
-    <th>Description</th>
-    <th>Category</th>
-    <th>Region</th>
-    <th>Image</th>
-  </tr>
-  </thead>
-  <tbody id="danceTableBody">
-  <tr><td colspan="5">Loading dances...</td></tr>
-  </tbody>
-</table>
+
+<img src="assets/images/brazil_flag.jpg" alt="Brazil Flag" class="flag">
+<h1>Welcome to Brazil</h1>
+<h2>Pick a Dance</h2>
+
+<div class="danceContainer" id="danceContainer">
+  <p>Loading dances...</p>
+</div>
 
 <script>
   function escapeHtml(str) {
@@ -56,35 +81,51 @@
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    fetch("fetch_dances.php")
+    fetch("http://localhost/dancopedia-brazil-frontend/src/api/fetch_dances.php")
             .then(response => response.json())
             .then(data => {
-              const tableBody = document.getElementById("danceTableBody");
-              tableBody.innerHTML = ""; // Clear existing content
+              const danceContainer = document.getElementById("danceContainer");
+              danceContainer.innerHTML = ""; // Clear existing content
+
               if (data.length) {
                 data.forEach(dance => {
                   const imageHtml = dance.media_url
                           ? `<img src="${escapeHtml(dance.media_url)}" alt="${escapeHtml(dance.alttext)}">`
-                          : "No Image Available";
-                  let row = `
-              <tr>
-                <td>${escapeHtml(dance.dance_name)}</td>
-                <td>${escapeHtml(dance.description)}</td>
-                <td>${escapeHtml(dance.category)}</td>
-                <td>${escapeHtml(dance.region)}</td>
-                <td>${imageHtml}</td>
-              </tr>
-            `;
-                  tableBody.insertAdjacentHTML("beforeend", row);
+                          : "<p>No Image Available</p>";
+
+                  const descriptionHtml = dance.description
+                          ? `<p class="danceDescription">${escapeHtml(dance.description)}</p>`
+                          : "<p class='danceDescription'>No description available</p>";
+
+                  const regionHtml = dance.region
+                          ? `<p class="danceRegion"><strong>Region:</strong> ${escapeHtml(dance.region)}</p>`
+                          : "<p class='danceRegion'><strong>Region:</strong> Unknown</p>";
+
+                  const categoryHtml = dance.category
+                          ? `<p class="danceCategory"><strong>Category:</strong> ${escapeHtml(dance.category)}</p>`
+                          : "<p class='danceCategory'><strong>Category:</strong> Uncategorized</p>";
+
+                  let danceCard = `
+                        <div class="dance">
+                            <h3 class="danceName">${escapeHtml(dance.dance_name)}</h3>
+                            ${imageHtml}
+                            ${descriptionHtml}
+                            ${regionHtml}
+                            ${categoryHtml}
+                        </div>
+                    `;
+                  danceContainer.insertAdjacentHTML("beforeend", danceCard);
                 });
               } else {
-                tableBody.innerHTML = "<tr><td colspan='5'>No dances found.</td></tr>";
+                danceContainer.innerHTML = "<p>No dances found.</p>";
               }
             })
             .catch(() => {
-              document.getElementById("danceTableBody").innerHTML = "<tr><td colspan='5'>Error loading data.</td></tr>";
+              document.getElementById("danceContainer").innerHTML = "<p>Error loading data.</p>";
             });
   });
+
+
 </script>
 
 </body>

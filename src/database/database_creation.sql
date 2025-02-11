@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS media (
 );
 
 INSERT INTO media (media_url, alttext) VALUES 
-('images/samba_img.jpg', 'Samba dance image'),
-('images/forro_img.jpg', 'Forro dance image'),
-('images/frevo_img.jpg', 'Frevo dance image'),
-('images/axe_img.jpg', 'Axé dance image'),
-('images/bossa_img.jpg', 'Bossa Nova dance image');
+('assets/images/samba_img.jpg', 'Samba dance image'),
+('assets/images/forro_img.jpg', 'Forro dance image'),
+('assets/images/frevo_img.jpg', 'Frevo dance image'),
+('assets/images/axe_img.jpg', 'Axé dance image'),
+('assets/images/bossa_img.jpg', 'Bossa Nova dance image');
 
 CREATE TABLE IF NOT EXISTS dances (
     dance_id INT PRIMARY KEY AUTO_INCREMENT,

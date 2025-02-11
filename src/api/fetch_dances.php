@@ -1,6 +1,8 @@
 <?php
-require 'database.php';
+require __DIR__ . '/../config/database.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // Ensure connection is successful
 if ($conn->connect_error) {
     echo json_encode(["error" => "Connection failed: " . $conn->connect_error]);
@@ -13,11 +15,11 @@ $sql = "
         dances.dance_name, 
         dances.description, 
         dances.region, 
-        images.media_url, 
-        images.alttext, 
+        media.media_url, 
+        media.alttext, 
         dance_categories.category_name
     FROM dances
-    LEFT JOIN images ON dances.media_id = images.media_id
+    LEFT JOIN media ON dances.media_id = media.media_id
     LEFT JOIN dance_categories ON dances.category_id = dance_categories.category_id
 ";
 
