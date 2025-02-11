@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Brazil</title>
+  <link rel="stylesheet" href="Home.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('Images/brazil_background.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: black;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+    }
+
+    .dance-options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .dance-box {
+      width: 150px;
+      height: 150px;
+      background-color: rgba(200, 160, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .dance-box:hover {
+      background-color: rgba(180, 140, 235, 0.9);
+    }
+
+    .dance-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-contenet: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .dance-gallery img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--<div class="container">-->
+  <img src="Images/brazil_flag.jpg" alt="Brazil Flag" class="flag">
+
+  <h1> Welcome to Brazil </h1>
+
+  <h2> Pick a Dance </h2>
+
+
+  <div class="danceContainer">
+    <div class="dance">
+      <h3 class="danceName">Samba</h3>
+      <image src="Images/samba.jpg" width="100%" height="225">
+
+    </div>
+
+    <div class="dance">
+      <h3 class="danceName">Tango</h3>
+      <image src="Images/samba.jpg" width="100%" height="225">
+    </div>
+
+    <div class="dance">
+      <h3 class="danceName">Ballet</h3>
+      <image src="Images/samba.jpg" width="100%" height="225">
+    </div>
+  </div>
+  <! -- A place where image will go -->
+    <div class="dance-gallery" id="danceGallery">
+      <!--Dance images will be loaded dynamically here-->
+    </div>
+    </div>
+</body>
+
+</html>
