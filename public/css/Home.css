@@ -42,3 +42,21 @@ h2{
     text-align: center;
     width: 350px; 
 }
+
+.danceDescription, .danceRegion, .danceCategory {
+    font-size: 14px;
+    color: black;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.danceRegion {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.danceCategory {
+    font-style: italic;
+    color: #035e01;
+}
+
