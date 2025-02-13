@@ -81,7 +81,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost/dancopedia-brazil-frontend/src/api/fetch_dances.php")
+    fetch("../src/api/fetch_dances.php")
             .then(response => response.json())
             .then(data => {
               const danceContainer = document.getElementById("danceContainer");
