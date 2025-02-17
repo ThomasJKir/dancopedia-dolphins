@@ -11,5 +11,5 @@ A website displaying various Brazil dances.
 
 ## How to run chatbot
 1. Install Node.js 
-2. Set enivorment variables for API key by entering $env:GROQ_API_KEY="enter_api_key_here" with proper credentials
+2. Set enivorment variables for API key by entering $env:GROQ_API_KEY="enter_api_key_here" in powershell with proper credentials
 3. Run node chatbot.js in folder path where chatbot.js is located.
