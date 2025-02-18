@@ -1,0 +1,62 @@
+h1{
+    text-align: center;
+    padding-bottom: 1px;
+    font-weight: 800;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 100px;
+    color:rgb(172, 240, 35);
+}
+h2{
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 80px;
+    margin-top: -25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: green;
+}
+
+
+.danceContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    padding: 20px;
+}
+
+.body{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('images/BrazilBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+.dance {
+    background: transparent;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px grey;
+    text-align: center;
+    width: 350px; 
+}
+
+.danceDescription, .danceRegion, .danceCategory {
+    font-size: 14px;
+    color: black;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.danceRegion {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.danceCategory {
+    font-style: italic;
+    color: #035e01;
+}
+
