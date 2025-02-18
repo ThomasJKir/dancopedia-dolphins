@@ -9,7 +9,7 @@ if ($conn->connect_error) {
     exit;
 }
 
-// Query to fetch dance details
+// Query to fetch dance details`
 $sql = "
     SELECT 
         dances.dance_name, 
