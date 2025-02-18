@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Brazil</title>
   <link rel="stylesheet" href="css/Home.css">
+  <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-image: url('assets/images/brazil_background.jpg');
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      color: black;
+     
     }
-
     .flag {
       position: absolute;
       top: 20px;
@@ -58,17 +60,224 @@
       height: auto;
       border-radius: 10px;
     }
-  </style>
+    .background{
+      background-image: url('assets/images/brazil_background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-align: center;
+      color: black;
+      height: 100vh;
+      width: 100vw;
+    }
+    section{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+
+.one{
+  background-color: #035e01;
+}
+.two{
+  background-color: aqua;
+}
+.three{
+  background-color: blue;
+}
+
+.scrollContainer{
+scroll-snap-type: y mandatory;
+overflow-y: scroll;
+height: 100vh;
+}
+
+a.nav-link {
+            color: gray;
+            font-size: 18px;
+            padding: 0;
+        }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #e84118;
+            padding: 2px;
+        }
+        .message-container {
+            height: 500px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .message {
+            max-width: 70%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .incoming {
+            background-color: #f1f1f1;
+            align-self: flex-start;
+        }
+        .outgoing {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+        .input-area {
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+        .form-control {
+            flex: 1;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            margin-right: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .btn-primary {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+       .fixed-state {
+          position: fixed;
+          bottom: 0;
+          left: 500px;
+          width: 100%;
+          text-align: center;
+          padding: 10px;
+         
+          
+        }
+      
+   
+</style>
 </head>
 <body>
+  <section class="one">
+    <div class="background"> 
+      <div class="scrollContainer">
+          <img src="assets/images/brazil_flag.jpg" alt="Brazil Flag" class="flag">
+          <h1>Welcome to Brazil</h1>
+          <h2>Pick a Dance</h2>
+          <div class="danceContainer" id="danceContainer">
+            <p>Loading dances...</p>
+          </div>
+      </div>
+    </div>
+  </section>
+  <section class="two"></section>
+  <section class="three"></section>
+  <div class="fixed-state">
 
-<img src="assets/images/brazil_flag.jpg" alt="Brazil Flag" class="flag">
-<h1>Welcome to Brazil</h1>
-<h2>Pick a Dance</h2>
+    <div class="container mt-4">
+      <div class="card mx-auto" style="max-width:400px">
+          <!-- Header -->
+          <div class="card-header bg-transparent" style="padding: 10px; width: 400px";>
+              <div class="navbar navbar-expanded p-0">
+                  <ul class="navbar-nav me-auto align-items-center">
+                      <li class="nav-item d-flex align-items-center">
+                          <a href="#!" class="nav-link">
+                              <div class="position-relative" style="width:40px; height: 40px; border-radius: 50% ; border: 2px solid #e84118; padding: 2px;">
+                                  <img src="chatbox_face.jpg" class="img-fluid" alt="" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                  <span class="position-absolute bottom-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
+                                      <span class="visually-hidden">New alerts</span>
+                                  </span>
+                              </div>
+                          </a>
+                          <a href="#!" class="nav-link ms-2">Ask Me!</a>
+                      </li>
+                  </ul>
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a href="#!" class="nav-link">
+                              <i class="fas fa-times"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
 
-<div class="danceContainer" id="danceContainer">
-  <p>Loading dances...</p>
-</div>
+          <!-- Message Area -->
+          <div class="card-body p-4" style="height: 300px; overflow: auto;">
+              <div class="d-flex align-items-baseline mb-4">
+                  <div class="position-relative avatar">
+                      <img src="chatbox_face.jpg" class="img-fluid" alt="" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                      <span class="position-absolute bottom-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
+                          <span class="visually-hidden">New alerts</span>
+                      </span>
+                  </div>
+                  <div class="pe-2">
+                      <div>
+                          <div class="card d-inline-block p-2 px-3 m-1">Welcome, What Do You Wanna Learn?</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+ 
+  <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Type a message...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div> 
+<!-- This JavaScript element is optional we added for Interactivity -->
+<script>
+  const inputField = document.querySelector('.form-control');
+  const sendButton = document.querySelector('.btn-primary');
+  const messageContainer = document.querySelector('.card-body');
+
+  sendButton.addEventListener('click', () => {
+      const messageText = inputField.value.trim();
+      if (messageText) {
+          const newMessage = document.createElement('div');
+          newMessage.classList.add('d-flex', 'align-items-baseline', 'mb-4');
+          newMessage.innerHTML = `
+              <div class="pe-2">
+                  <div>
+                      <div class="card d-inline-block p-2 px-3 m-1">${messageText}</div>
+                  </div>
+              </div>
+          `;
+          
+          messageContainer.appendChild(newMessage);
+          inputField.value = '';
+          messageContainer.scrollTop = messageContainer.scrollHeight;
+      }
+  });
+</script> 
+        
+  
 
 <script>
   function escapeHtml(str) {
@@ -81,7 +290,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost/dancopedia-brazil-frontend/src/api/fetch_dances.php")
+    fetch("../src/api/fetch_dances.php")
             .then(response => response.json())
             .then(data => {
               const danceContainer = document.getElementById("danceContainer");
