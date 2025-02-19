@@ -1,11 +1,13 @@
 import Groq from "groq-sdk";
 import readline from "readline";
+import dotenv from "dotenv";
+dotenv.config({ path: "../../.env" });
+
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const messages = [];
