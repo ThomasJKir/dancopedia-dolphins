@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function sendMessage() {
         const messageText = inputField.value.trim();
+        console.log('chat sent')
         if (!messageText) return;
 
         // Display user message
