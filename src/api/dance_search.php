@@ -23,6 +23,8 @@ $sql = "
     LEFT JOIN media ON dances.media_id = media.media_id
     LEFT JOIN dance_categories ON dances.category_id = dance_categories.category_id
     WHERE dances.dance_name LIKE '%$search%'
+       OR dances.region LIKE '%$search%'
+       OR dance_categories.category_name LIKE '%$search%'
 ";
 
 $result = $conn->query($sql);
