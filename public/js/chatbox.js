@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function sendMessage() {
         const messageText = inputField.value.trim();
-        console.log('chat sent')
+        console.log(messageText);
         if (!messageText) return;
 
         // Display user message
@@ -39,13 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
             aiMessage.classList.add("d-flex", "align-items-baseline", "mb-4");
             aiMessage.innerHTML = `
                 <div class="position-relative avatar">
-                    <img src="chatbox_face.jpg" class="img-fluid" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    <img src="assets/images/chatbox_face.jpg" class="img-fluid" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
                 </div>
                 <div class="pe-2">
                     <div class="card d-inline-block p-2 px-3 m-1 incoming">${aiReply}</div>
                 </div>
             `;
             messageContainer.appendChild(aiMessage);
+            console.log("fromdance")
             messageContainer.scrollTop = messageContainer.scrollHeight;
         } catch (error) {
             console.error("Error:", error);
@@ -55,7 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
     sendButton.addEventListener("click", sendMessage);
     inputField.addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
-            sendMessage();
+            sendMessage(); 
         }
-    });
+    });  
 });
+console.log("chat box js loaded");
