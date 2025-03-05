@@ -27,10 +27,12 @@
 
 <body>
 <div id="toolbar-container"></div>
+<!--ChatBox-->
+<div id="chatbox-container"></div>
   <section class="one">
     <div class="background">
       <div class="scrollContainer">
-        <img src="assets/images/brazil_flag.jpg" alt="Brazil Flag" class="flag">
+        
         <h1>Welcome to Brazil</h1>
         <h2>Pick a Dance</h2>
         <div class="danceContainer" id="danceContainer">
@@ -41,8 +43,8 @@
   </section>
   <section class="two"></section>
   <section class="three"></section>
+  
   <div class="fixed-state">
-
     <div class="container mt-4">
       <div class="card mx-auto" style="max-width:400px">
         <!-- Header -->
@@ -111,7 +113,6 @@
         loadDances();
       });
     </script>
-  <script src="../public/js/chatbox.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         fetch("html/toolbar.html")
@@ -119,6 +120,9 @@
                 .then(data => document.getElementById("toolbar-container").innerHTML = data);
       });
     </script>
+    
+    <script src="../public/js/chatbox.js"></script>
+
 
 </body>
 

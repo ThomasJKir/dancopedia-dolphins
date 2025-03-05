@@ -1,18 +1,19 @@
 body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; 
+  color: #333; 
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: lightskyblue;
-  color: darkgreen;
 }
 
 h1 {
-  font-family: Arial, sans-serif;
-  font-size: 100px;
+  font-size: 60px;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 10px;
   color: darkgreen;
+  background: rgba(255, 255, 204, 0.6);
+  margin: 0;
 }
 
 h2 {
@@ -106,31 +107,35 @@ h2 {
 .btn-primary:hover {
   background-color: #0056b3;
 }
-
-.Catagories {
+.danceContainer {
+  width: 100%;
+  min-height: 100vh; /* Adjust as needed */
+}
+.Categories {
   padding: 16px;
-  display: grid;
-  grid-gap: 16px;
+    display: grid;
+    grid-gap: 16px;
+    width: 100%;
 }
 
-.Catagorie {
-  background-color: lightgreen;
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.Categorie {
+  background-color:rgba(0, 128, 0, 0.1);
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.Catagorie:hover {
+.Categorie:hover {
   background-color: lightblue;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.Catagorie h2 {
+.Categorie h2 {
   font-size: 20px;
   color: darkgreen;
 }
@@ -138,31 +143,22 @@ h2 {
 .scrollContainer {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 100vh;
+  
 }
 
 .fixed-state {
   position: fixed;
   bottom: 0;
-  left: 500px;
-  width: 100%;
+  left: auto;
+  right: 20px;
+  width: auto;
   text-align: center;
-  padding: 10px;
-}
-
-.toolBar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  background-color: lightblue !important;
-  color: darkgreen;
-  font-size: 16px;
+  padding: 0px;
+  background-color: #fff; 
 }
 
 .active-page {
-  color: white !important;
+  color: darkgreen !important;
   font-weight: bold;
   pointer-events: none;
 }
@@ -195,19 +191,19 @@ a.nav-link {
 }
 
 @media (min-width: 768px) {
-  .Catagories {
-    grid-template-columns: repeat(2, 1fr);
+  .Categories {
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (min-width: 960px) {
-  .Catagories {
-    grid-template-columns: repeat(3, 1fr);
+  .Categories {
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 
 @media (min-width: 1200px) {
-  .Catagories {
-    grid-template-columns: repeat(4, 1fr);
+  .Categories {
+    grid-template-columns: repeat(4, 1fr); 
   }
 }
