@@ -24,6 +24,9 @@ COMMIT;
 
 
 
+INSERT INTO users (user_type, username, password_hash, email_hash) VALUES 
+('admin', 'admin', 'abc123', 'abc123');
+
 CREATE TABLE IF NOT EXISTS dance_categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
     category_name VARCHAR(100) NOT NULL UNIQUE
@@ -52,23 +55,30 @@ CREATE TABLE IF NOT EXISTS dances (
     description TEXT,
     media_id INT,
     region VARCHAR(100),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES dance_categories(category_id) ON DELETE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(media_id) ON DELETE CASCADE
 );
 
-INSERT INTO dances (dance_name, category_id, description, media_id, region) VALUES
-('Samba', 1, 'A lively, rhythmical dance with origins in Afro-Brazilian communities, performed at the Carnival.', 1, 'Rio de Janeiro'),
-('Forró', 3, 'A close-partner dance from Northeastern Brazil with accordion-driven rhythms.', 2, 'Northeastern Brazil'),
-('Frevo', 2, 'An energetic, acrobatic dance performed with colorful umbrellas during Carnival.', 3, 'Pernambuco'),
-('Axé', 4, 'A vibrant dance style from Bahia with upbeat moves, popular at parties and festivals.', 4, 'Bahia'),
-('Bossa Nova', 4, 'A smooth, intimate dance style with subtle sway, paired with jazzy Bossa Nova music.', 5, 'Rio de Janeiro');
-
 CREATE TABLE IF NOT EXISTS region (
     region_key INT PRIMARY KEY AUTO_INCREMENT,
-    region_name VARCHAR(100),
-    dance_id INT,
-    FOREIGN KEY (dance_id) REFERENCES dances(dance_id) ON DELETE CASCADE
+    region_name VARCHAR(100)
 );
+
+INSERT INTO region (region_name, region_key) VALUES
+('Rio de Janeiro', 1),
+('Northeastern Brazil', 2),
+('Pernambuco', 3),
+('Bahia', 4);
+
+INSERT INTO dances (dance_name, category_id, description, media_id, region, user_id) VALUES
+('Samba', 1, 'A lively, rhythmical dance with origins in Afro-Brazilian communities, performed at the Carnival.', 1, 1, 1),
+('Forró', 3, 'A close-partner dance from Northeastern Brazil with accordion-driven rhythms.', 2, 2, 1),
+('Frevo', 2, 'An energetic, acrobatic dance performed with colorful umbrellas during Carnival.', 3, 3, 1),
+('Axé', 4, 'A vibrant dance style from Bahia with upbeat moves, popular at parties and festivals.', 4, 4, 1),
+('Bossa Nova', 4, 'A smooth, intimate dance style with subtle sway, paired with jazzy Bossa Nova music.', 5, 1, 1);
+
 
 CREATE TABLE IF NOT EXISTS preferences (
     preference_id INT PRIMARY KEY AUTO_INCREMENT,
