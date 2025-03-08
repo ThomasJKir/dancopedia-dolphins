@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+$user_type=" ";
+
+if(isset($_SESSION["admin_name"])){
+   $user_type="admin";
+}
+
+else if(isset($_SESSION["user_name"])){
+  $user_type="user";
+}
+else{
+  $user_type="guest";
+}
+
+$toolBar=" "
+if($user_type=="admin"){
+  $toolBar="adminhome.php";
+}
+else if($user_type=="user"){
+  $toolBar="userhome.php";
+}
+else if($user_type=="guest"){
+  $toolBar="toolbar.html";
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,38 +43,13 @@
   </head>
 
   <body>
-    <div class="toolBar" style="background-color: lightblue;">
-      <!-- tool bar -->
-      <header class="p-3" style="background-color: lightblue;">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/public" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap"></use>
-              </svg>
-            </a>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="index.html" class="nav-link px-2" style="color: darkgreen;">Home</a></li>
-              <li><a href="danceCategories.html" class="nav-link px-2 text-white">Catagories</a></li>
-              <li><a href="regions.html" class="nav-link px-2" style="color: darkgreen;">Regions</a></li>
+    <header>
+      <div id="toolbar-placeholder">
+        <?php include($toolBar); ?>
+      </div>
+    </header>
 
-            </ul>
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" class="form-control" style="color: darkgreen" style="background-color: lightblue;"
-                placeholder="Search..." aria-label="Search">
-            </form>
-            <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2" onclick="window.location.href='login.php'">Login</button>
-              <button type="button" class="btn"
-                style="background-color: lightgreen; color: darkgreen; border-color: darkgreen;">Sign-up</button>
-              <button type="button" class="btn btn-outline-light me-2">Settings</button>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
     <section class="one">
       <div class="background">
         <div class="scrollContainer">
@@ -138,9 +142,5 @@
     </div>
 
   </body>
-
-</html>
-
-</body>
 
 </html>
