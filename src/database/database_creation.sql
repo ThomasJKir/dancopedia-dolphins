@@ -3,14 +3,26 @@ SET FOREIGN_KEY_CHECKS=0;
 CREATE DATABASE IF NOT EXISTS brazil_dances;
 USE brazil_dances;
 
-CREATE TABLE IF NOT EXISTS users (
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_type ENUM('admin', 'user'),
-    username VARCHAR(100) NOT NULL UNIQUE,
-    password_hash CHAR(64),
-    email_hash VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+CREATE TABLE users_form (
+  id int(255) NOT NULL,
+  username varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  user_type varchar(255) NOT NULL DEFAULT 'user'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO users_form (id, username, password, user_type) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user'),
+(3, 'bob', '9f9d51bc70ef21ca5c14f307980a29d8', 'user'),
+(4, 'tim', 'b15d47e99831ee63e3f47cf3d4478e9a', 'admin');
+
+ALTER TABLE users_form
+
+ALTER TABLE users_form
+  MODIFY id int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+
 
 INSERT INTO users (user_type, username, password_hash, email_hash) VALUES 
 ('admin', 'admin', 'abc123', 'abc123');
