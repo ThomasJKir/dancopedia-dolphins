@@ -1,10 +1,10 @@
 SET FOREIGN_KEY_CHECKS=0;
-
+DROP DATABASE IF EXISTS brazil_dances;
 CREATE DATABASE IF NOT EXISTS brazil_dances;
 USE brazil_dances;
 
 CREATE TABLE users_form (
-  id int(255) NOT NULL,
+  id int(255) NOT NULL PRIMARY KEY,
   username varchar(255) NOT NULL,
   password varchar(255) NOT NULL,
   user_type varchar(255) NOT NULL DEFAULT 'user'
@@ -17,15 +17,9 @@ INSERT INTO users_form (id, username, password, user_type) VALUES
 (4, 'tim', 'b15d47e99831ee63e3f47cf3d4478e9a', 'admin');
 
 ALTER TABLE users_form
-
-ALTER TABLE users_form
   MODIFY id int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
-
-
-INSERT INTO users (user_type, username, password_hash, email_hash) VALUES 
-('admin', 'admin', 'abc123', 'abc123');
 
 CREATE TABLE IF NOT EXISTS dance_categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,7 +50,7 @@ CREATE TABLE IF NOT EXISTS dances (
     media_id INT,
     region VARCHAR(100),
     user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users_form(id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES dance_categories(category_id) ON DELETE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(media_id) ON DELETE CASCADE
 );
@@ -84,7 +78,7 @@ CREATE TABLE IF NOT EXISTS preferences (
     preference_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     dance_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users_form(id) ON DELETE CASCADE,
     FOREIGN KEY (dance_id) REFERENCES dances(dance_id) ON DELETE CASCADE
 );
 
