@@ -32,7 +32,7 @@ if (!isset($_SESSION["user_name"]) && !isset($_SESSION["admin_name"])) {
 
                 <!-- Search Box -->
                 <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <form action="../search.html" method="get" class="d-flex" onsubmit="return handleSearch(event)">
+                    <form action="../public/search.html" method="get" class="d-flex" onsubmit="return handleSearch(event)">
                         <input type="text" name="q" id="toolbarSearchInput" class="form-control" placeholder="Search..." aria-label="Search">
                         <button type="submit" class="btn btn-light" style="border-color: #FFDF00; color: #FFDF00; margin-left: 5px;">Go</button>
                     </form>
