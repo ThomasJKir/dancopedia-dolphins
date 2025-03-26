@@ -167,10 +167,13 @@ function loadDances(region = null, category = null) {
                 <p class="danceDescription">${escapeHtml(dance.description)}</p>
         
                 
-                <div style="text-align: center; margin-top: 1rem;">
-                  <button class="dance-update-btn" data-dance-id="${dance.dance_id}">Update</button>
-                  <button class="dance-delete-btn" data-dance-id="${dance.dance_id}" style="margin-left: 1rem;">Delete</button>
-                </div>
+                ${isAdmin ? `
+<div style="text-align: center; margin-top: 1rem;">
+  <button class="dance-update-btn" data-dance-id="${dance.dance_id}">Update</button>
+  <button class="dance-delete-btn" data-dance-id="${dance.dance_id}" style="margin-left: 1rem;">Delete</button>
+</div>
+` : ""}
+
               </div>
             </div>
           `;

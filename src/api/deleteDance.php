@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . '/../config/database.php';
-
+session_start();
+if (!isset($_SESSION["admin_name"])) {
+    echo json_encode(["success" => false, "error" => "Unauthorized."]);
+    exit();
+}
 header("Content-Type: application/json");
 
 $data = json_decode(file_get_contents("php://input"), true);

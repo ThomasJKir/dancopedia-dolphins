@@ -1,3 +1,9 @@
+<?php
+session_start();
+$isAdmin = isset($_SESSION["admin_name"]);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +23,7 @@
     />
 </head>
 <body>
+
     <div id="toolbar-container"></div>
     <h1>Dance Page</h1>
     <div id="danceContainer"></div>
@@ -53,6 +60,10 @@
 
 
 <!-- Load Dance Details according to ID -->
+    <script>
+        const isAdmin = <?php echo json_encode($isAdmin); ?>;
+    </script>
+
 <script src="js/load_dances.js"></script>
 
 <!-- Loads the single dance that is clicked on by user in previous page-->
